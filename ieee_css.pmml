@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="talel">
+    <Application name="KNIME" version="5.2.3"/>
+  </Header>
+  <DataDictionary numberOfFields="3">
+    <DataField dataType="integer" name="X" optype="continuous">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="20.0"/>
+    </DataField>
+    <DataField dataType="integer" name="Y" optype="continuous">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="20.0"/>
+    </DataField>
+    <DataField dataType="integer" name="Z" optype="continuous">
+      <Interval closure="closedClosed" leftMargin="1.0" rightMargin="21.0"/>
+    </DataField>
+  </DataDictionary>
+  <GeneralRegressionModel modelType="generalLinear" functionName="regression" algorithmName="LinearRegression" modelName="KNIME Linear Regression">
+    <MiningSchema>
+      <MiningField name="X" invalidValueTreatment="asIs"/>
+      <MiningField name="Y" invalidValueTreatment="asIs"/>
+      <MiningField name="Z" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <ParameterList>
+      <Parameter name="p0" label="Intercept"/>
+      <Parameter name="p1" label="X"/>
+      <Parameter name="p2" label="Y"/>
+    </ParameterList>
+    <FactorList/>
+    <CovariateList>
+      <Predictor name="X"/>
+      <Predictor name="Y"/>
+    </CovariateList>
+    <PPMatrix>
+      <PPCell value="1" predictorName="X" parameterName="p1"/>
+      <PPCell value="1" predictorName="Y" parameterName="p2"/>
+    </PPMatrix>
+    <ParamMatrix>
+      <PCell parameterName="p0" beta="12.698860229810723" df="1"/>
+      <PCell parameterName="p1" beta="0.07384853089278051" df="1"/>
+      <PCell parameterName="p2" beta="-0.31134194633107376" df="1"/>
+    </ParamMatrix>
+  </GeneralRegressionModel>
+</PMML>
